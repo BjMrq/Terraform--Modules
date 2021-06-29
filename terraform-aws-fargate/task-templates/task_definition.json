@@ -1,0 +1,24 @@
+[
+  {
+    "name": "${taskDefinitionName}",
+    "image": "${dockerImage}",
+    "repositoryCredentials": {
+      "credentialsParameter": "${repositoryAuthSecretArn}"
+    },
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": ${containerPort
+        }
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${serviceName}-LogGroup",
+        "awslogs-region": "${region}",
+        "awslogs-stream-prefix": "${serviceName}-LogGroup-stream"
+      }
+    }
+  }
+]
